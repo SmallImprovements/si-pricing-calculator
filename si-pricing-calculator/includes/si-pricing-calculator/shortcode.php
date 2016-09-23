@@ -6,15 +6,6 @@
 
 $classes = 'si-pricing-calculator ' . $class;
 
-$icon_style = ( $icon_color != '' ) ? "color: $icon_color;" : '';
-
-$icon_atts = cs_atts( array(
-	'class' => 'si-pricing-calculator-icon x-icon-' . $icon,
-	'data-x-icon' => fa_entity( $icon ),
-	'aria-hidden' => 'true',
-	'style' => $icon_style
-) );
-
 $containerAtts = cs_atts( array(
 	'id' => $id . 'priceCalculatorForm',
 	'class' => $classes,
