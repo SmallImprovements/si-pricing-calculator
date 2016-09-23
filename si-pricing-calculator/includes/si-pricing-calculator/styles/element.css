@@ -1,5 +1,6 @@
 #priceCalculatorForm #priceCalculatorInput {
   height: 55px;
+  width: 100%;
   box-shadow: none;
   border-radius: 0;
   position: relative;
