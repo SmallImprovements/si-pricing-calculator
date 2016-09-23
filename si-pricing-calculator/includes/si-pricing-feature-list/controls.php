@@ -21,7 +21,7 @@ return array(
             array( 
                 'title' => __( 'Item 1', 'si-pricing-elements' ),
                 'link' => __( 'Link', 'si-pricing-elements' )
-            )
+            ),
         )
 	),
 
