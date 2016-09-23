@@ -5,12 +5,14 @@
  */
 
 $classes = 'si-pricing-calculator ' . $class;
+$result_target        = ( $result_target        != ''     ) ? esc_attr( $result_target ) : '';
 
 $containerAtts = cs_atts( array(
 	'id' => $id . 'priceCalculatorForm',
 	'class' => $classes,
 	'style' => $style,
-	'data-component' => 'PricingCalculator'
+	'data-component' => 'PricingCalculator',
+	'data-result-target' => $result_target
 ) );
 
 ?>

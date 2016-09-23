@@ -8,4 +8,5 @@ return array(
 	'id'               => '',
 	'class'   		   => '',
 	'style'            => '',
+	'result_target'		=> ''
 );

@@ -115,13 +115,14 @@ jQuery(document).ready(function(){
 
         cacheEls: function () {
             this.$el = jQuery(this.el);
+            var targetEl = this.$el.data('result-target') || '';
             this.$input = jQuery('#priceCalculatorInput');
             this.$form = jQuery('#priceCalculatorForm');
             this.$actions = this.$form.find('.actions');
             this.$nonprofit = jQuery('#non-profit');
-            this.$pricingPlan = this.$el.find('.pricingPlan');
+            this.$pricingPlan = jQuery(targetEl) || this.$el.find('.pricingPlan');
 
-            var $priceBox = this.$el.find('.price-box');
+            var $priceBox = this.$pricingPlan.find('.price-box');
 
             this.$plan = {
                 el: $priceBox,
@@ -166,7 +167,7 @@ jQuery(document).ready(function(){
         },
 
         setPrice: function () {
-            console.log('settginPrice');
+            console.log(this.$pricingPlan);
             var reset = false,
                 users = this.users;
 
