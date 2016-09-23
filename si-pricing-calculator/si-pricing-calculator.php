@@ -1,5 +1,5 @@
 <?php
-
+namespace siCalculator;
 /*
 Plugin Name: SI Pricing Calculator
 Plugin URI:
@@ -19,6 +19,14 @@ Version: 0.1.0
 			'name'		=> 'si-pricing-calculator',
 			'directory'		=> 'si-pricing-calculator',
 		),
+		'SI_Pricing_Feature_List'	=> array(
+			'name'		=> 'si-pricing-feature-list',
+			'directory'		=> 'si-pricing-feature-list',
+		),
+		'SI_Pricing_Feature_List_Item'	=> array(
+			'name'		=> 'si-pricing-feature-list-item',
+			'directory'		=> 'si-pricing-feature-list/si-pricing-feature-list-item',
+		),
 	);
 	
 	/* Register Elements */
@@ -37,7 +45,7 @@ Version: 0.1.0
 	add_action( 'wp_enqueue_scripts', function() use ( $elements ) {
 		foreach ($elements as $key => $value) {
 			$title = $key;
-			$namespace = $value['namespace'];
+			$name = $value['name'];
 			$directory = $value['directory'];
 
 			$cssFilePath = EXT_PATH . 'includes/' . $directory . '/styles/element.css';
@@ -46,10 +54,10 @@ Version: 0.1.0
 			$jsFileUrl = EXT_URL . 'includes/' . $directory . '/scripts/element.js';
 			
 			if(file_exists($cssFilePath)) {
-				wp_enqueue_style( $namespace . '-style', $cssFileUrl, array(), '0.1.0' );	
+				wp_enqueue_style( $name . '-style', $cssFileUrl, array(), '0.1.0' );	
 			}
 			if(file_exists($jsFilePath)) {
-				wp_enqueue_script( $namespace . '-script', $jsFileUrl, array(), '0.1.0' );
+				wp_enqueue_script( $name . '-script', $jsFileUrl, array(), '0.1.0' );
 			}
 		}
 	});
