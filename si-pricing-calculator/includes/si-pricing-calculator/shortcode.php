@@ -23,7 +23,7 @@ $containerAtts = cs_atts( array(
 		<a class="clear hidden"></a>
 	</div>
 	<div class="pricing-info styled-checkboxes">
-		<input type="checkbox" id="non-profit"><label for="non-profit">Apply 50% nonprofit discount (<a href="/nonprofit">learn more</a>)</label>
+		<input type="checkbox" id="non-profit"><label for="non-profit">Apply 50% nonprofit discount (<a href="https://www.small-improvements.com/nonprofit">learn more</a>)</label>
 	</div>
 
 	<div class="actions">
@@ -32,14 +32,14 @@ $containerAtts = cs_atts( array(
 			<a data-pricing-button="freePlanButton" class="free-plan">Congrats, you get SI for free!</a>
 			
 			<!-- if not logged in [trialButton] -->
-			<a data-pricing-button="trialButton" href="/register">
+			<a data-pricing-button="trialButton" href="https://www.small-improvements.com/register">
 				<span class="trial">Start free trial</span>
 				<span class="signup">Free for up to 10 users.</span>
 			</a>
 
 			<!-- if (company != null && currentUser != null) {Buy Button -->
 			<a data-pricing-button="buyButton" class="pricing-form-trigger" data-trigger="request-invoice" href="#">Buy now</a>
-			<a class="contact-form-trigger" href="/contact">Contact us for renewal</a>
+			<a class="contact-form-trigger" href="https://www.small-improvements.com/contact">Contact us for renewal</a>
 		</div>	
 	</div>
 	<div class="pricingPlan">
