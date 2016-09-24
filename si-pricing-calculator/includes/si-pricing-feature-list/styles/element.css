@@ -9,8 +9,7 @@
 }
 .si-pricing-feature-list h2 {
     font-size: 30px;
-    margin-bottom: 10px;
-    margin-top: 0;
+    margin: 0;
 }
 .si-pricing-feature-list header{
     width: 100%;
@@ -35,6 +34,7 @@
 .si-pricing-feature-list a:hover {
     background-color: #f5f5f5;
     transition: background-color .25s;
+    color: gray;
 }
 
 .feature-list-pricingPlan.active .pricing-features p:last-child {
