@@ -28,9 +28,17 @@ $containerAtts = cs_atts( array(
 
 	<div class="actions">
 		<div>
-			<a class="free-plan">Congrats, you get SI for free!</a>
-			<a  href="/register"><span class="trial">Start free trial</span><span class="signup">Free for up to 10 users.</span></a>
-			<a  class="pricing-form-trigger" data-trigger="request-invoice" href="#">Buy now</a>
+			<!-- if logged in [freePlanButton] -->
+			<a data-pricing-button="freePlanButton" class="free-plan">Congrats, you get SI for free!</a>
+			
+			<!-- if not logged in [trialButton] -->
+			<a data-pricing-button="trialButton" href="/register">
+				<span class="trial">Start free trial</span>
+				<span class="signup">Free for up to 10 users.</span>
+			</a>
+
+			<!-- if (company != null && currentUser != null) {Buy Button -->
+			<a data-pricing-button="buyButton" class="pricing-form-trigger" data-trigger="request-invoice" href="#">Buy now</a>
 			<a class="contact-form-trigger" href="/contact">Contact us for renewal</a>
 		</div>	
 	</div>

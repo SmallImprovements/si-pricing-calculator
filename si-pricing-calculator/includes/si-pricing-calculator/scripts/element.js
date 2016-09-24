@@ -110,7 +110,26 @@ jQuery(document).ready(function(){
                 this.cacheEls();
                 this.bindEvents();
                 this.setPrice();
+                this.setButtonVisibility();
             }
+            
+        },
+
+        setButtonVisibility: function() {
+            var isLoggedIn = window.SI._currentUser.id;
+            var company = window.SI._currentUser.company;
+            if(isLoggedIn) {
+                this.$freePlanButton.show();
+                this.$trialButton.hide();
+            } else {
+                this.$freePlanButton.hide();
+                this.$trialButton.show();
+            }
+
+            // if (company != null && currentUser != null
+            //     && currentUser.hasBasicHR() && company.getPlan() == 0) {
+            //     this.$buyButton.show();
+            // }
         },
 
         cacheEls: function () {
@@ -121,7 +140,10 @@ jQuery(document).ready(function(){
             this.$actions = this.$form.find('.actions');
             this.$nonprofit = jQuery('#non-profit');
             this.$pricingPlan = jQuery(targetEl) || this.$el.find('.pricingPlan');
-
+            this.$freePlanButton = this.$actions.find("[data-pricing-button='freePlanButton']");
+            this.$trialButton = this.$actions.find("[data-pricing-button='trialButton']");
+            this.$buyButton = this.$actions.find("[data-pricing-button='buyButton']");
+            
             var $priceBox = this.$pricingPlan.find('.price-box');
 
             this.$plan = {
