@@ -196,9 +196,9 @@ jQuery(document).ready(function(){
             if (!users || users < 1) {
                 users = 1;
                 reset = true;
-                this.$pricingPlan.removeClass('active');
+                //this.$pricingPlan.removeClass('active');
             } else {
-                this.$pricingPlan.addClass('active');
+                //this.$pricingPlan.addClass('active');
             }
 
         var nonprofit = this.$nonprofit.is(':checked');

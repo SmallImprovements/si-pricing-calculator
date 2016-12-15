@@ -1,0 +1,156 @@
+.pricing-calculator-pricingPlan.active .pricing-features p:last-child {
+  border-radius: 0;
+}
+.pricing-calculator-pricingPlan.active .price-box {
+  opacity: 1;
+  height: 100px;
+  transition: opacity .2s .2s, height .4s;
+}
+
+
+.pricing-calculator-pricingPlan .price-box {
+  height: 0;
+  opacity: 0;
+  font-size: 0;
+  color: #333;
+  border: 1px solid #ddd;
+  border-top-width: 0;
+  border-radius: 0 0 3px 3px;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  transition: opacity .4s, height .2s .2s;
+}
+.pricing-calculator-pricingPlan .price-box > div {
+  display: inline-block;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  font-size: 16px;
+  vertical-align: top;
+  background-color: #f6f6f6;
+  color: #333;
+  transition: background-color 0.2s;
+}
+.no-flexbox .pricing-calculator-pricingPlan .price-box > div {
+  display: inline-block;
+  padding: 20px 0;
+}
+.pricing-calculator-pricingPlan .price-box > div.price-monthly {
+  border-radius: 0 0 0 3px;
+}
+.pricing-calculator-pricingPlan .price-box > div.price-yearly {
+  border-radius: 0 0 3px 0;
+}
+.pricing-calculator-pricingPlan .price-box > div.price-yearly:before {
+  content: "or";
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  padding: 5px 0;
+  text-align: center;
+  color: #555;
+  font-weight: bold;
+  font-size: 15px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -12px;
+  margin-top: -12px;
+}
+.pricing-calculator-pricingPlan .price-box > div:first-child {
+  border-right: 1px solid white;
+}
+.pricing-calculator-pricingPlan .price-box > div:hover {
+  background-color: #eee;
+}
+.pricing-calculator-pricingPlan .price-box > div:hover + .info .biyearly-info {
+  font-weight: bold;
+}
+.pricing-calculator-pricingPlan .price-box .price {
+  font-size: 26px;
+  color: #333;
+  font-weight: bold;
+}
+.pricing-calculator-pricingPlan .price-box .price-description {
+  line-height: 1.3;
+  height: 1.3em;
+  transition: height 0.2s;
+}
+.pricing-calculator-pricingPlan .price-box.calculated .price-description:not(:last-child) {
+  height: 0;
+  overflow: hidden;
+}
+.pricing-calculator-pricingPlan .price-box:before {
+  position: absolute;
+  background-color: #eee;
+  color: #333;
+  line-height: 100px;
+  font-size: 19px;
+  text-align: center;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.pricing-calculator-pricingPlan .price-box.free:before {
+  content: "Free for up to 10 users.";
+}
+.pricing-calculator-pricingPlan .price-box.free.nonprofit:before {
+  content: "Free for up to 20 users.";
+}
+.pricing-calculator-pricingPlan .price-box.unavailable:before {
+  content: "Not available.";
+}
+.pricing-calculator-pricingPlan .price-box.contact {
+  cursor: pointer;
+}
+.pricing-calculator-pricingPlan .price-box.contact:before {
+  content: "Contact us about volume pricing: \A sales@small-improvements.com";
+  line-height: 25px;
+  padding-top: 23px;
+}
+
+.pricing-calculator-pricingPlan p.info {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  display: block;
+  font-size: 15px;
+  padding: 0;
+  margin: 5px 0 0 0;
+  line-height: 1.2;
+  text-align: center;
+  color: #333333;
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+.pricing-calculator-pricingPlan p.info i {
+  display: none;
+}
+.pricing-calculator-pricingPlan p.info .biyearly-info {
+  display: none;
+  transition: all 0.2s;
+  opacity: 0;
+}
+.pricing-calculator-pricingPlan p.info.calculated.discounted i {
+  display: inline-block;
+}
+.pricing-calculator-pricingPlan p.info.calculated .staff-size:after {
+  content: " for " attr(data-users) " staff";
+  font-weight: bold;
+}
+.pricing-calculator-pricingPlan p.info.calculated .biyearly-info {
+  opacity: 1;
+}
+.pricing-calculator-pricingPlan p.info.no-price {
+  opacity: 0;
+}

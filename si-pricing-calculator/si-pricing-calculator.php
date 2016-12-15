@@ -19,6 +19,10 @@ Version: 0.1.0
 			'name'		=> 'si-pricing-calculator',
 			'directory'		=> 'si-pricing-calculator',
 		),
+		'SI_Pricing_Calculator_Results'	=> array(
+			'name'		=> 'si-pricing-calculator-results',
+			'directory'		=> 'si-pricing-calculator/si-pricing-calculator-results',
+		),
 		'SI_Pricing_Feature_List'	=> array(
 			'name'		=> 'si-pricing-feature-list',
 			'directory'		=> 'si-pricing-feature-list',
@@ -57,7 +61,7 @@ Version: 0.1.0
 				wp_enqueue_style( $name . '-style', $cssFileUrl, array(), '0.1.0' );	
 			}
 			if(file_exists($jsFilePath)) {
-				wp_enqueue_script( $name . '-script', $jsFileUrl, array(), '0.1.0' );
+				wp_enqueue_script( $name . '-script', $jsFileUrl, array(), '0.1.0', true );
 			}
 		}
 	});
