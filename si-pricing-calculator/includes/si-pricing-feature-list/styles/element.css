@@ -26,10 +26,14 @@
     line-height: 30px;
     margin: 0;
     padding-left: 13px;
+    padding-right:30px;
+  	padding-top:5px;
+  	padding-bottom:5px;
     color: gray;
     border-bottom: 1px solid #ebebeb;
     border-left: 1px solid #d9dee1;
     border-right: 1px solid #d9dee1;
+    position:relative;
 }
 .si-pricing-feature-list a:hover {
     background-color: #f5f5f5;
@@ -37,3 +41,16 @@
     color: gray;
 }
 
+
+.si-pricing-feature-list a:after{
+  content:"\f101";
+  font-family:'FontAwesome';
+  position:absolute;
+  right:10px;
+  top:5px;
+  opacity:.4;
+}
+
+.si-pricing-feature-list a:hover:after{
+  opacity:1;
+}
