@@ -3,7 +3,7 @@
 }
 .pricing-calculator-pricingPlan.active .price-box {
   opacity: 1;
-  height: 100px;
+  height: auto;
   transition: opacity .2s .2s, height .4s;
 }
 
@@ -12,13 +12,11 @@
   height: 0;
   opacity: 0;
   font-size: 0;
-  color: #333;
-  border: 1px solid #ddd;
-  border-top-width: 0;
-  border-radius: 0 0 3px 3px;
+  color:#fff;
   position: relative;
   -webkit-font-smoothing: antialiased;
   transition: opacity .4s, height .2s .2s;
+  border:0;
 }
 .pricing-calculator-pricingPlan .price-box > div {
   display: inline-block;
@@ -33,19 +31,15 @@
   text-align: center;
   font-size: 16px;
   vertical-align: top;
-  background-color: #f6f6f6;
-  color: #333;
   transition: background-color 0.2s;
+  background-color:transparent;
+  border:none;
+  border-radius:0;
+  color:#fff;
 }
 .no-flexbox .pricing-calculator-pricingPlan .price-box > div {
   display: inline-block;
   padding: 20px 0;
-}
-.pricing-calculator-pricingPlan .price-box > div.price-monthly {
-  border-radius: 0 0 0 3px;
-}
-.pricing-calculator-pricingPlan .price-box > div.price-yearly {
-  border-radius: 0 0 3px 0;
 }
 .pricing-calculator-pricingPlan .price-box > div.price-yearly:before {
   content: "or";
@@ -61,22 +55,18 @@
   border-radius: 50%;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 25%;
   margin-left: -12px;
   margin-top: -12px;
+  line-height:14px;
 }
-.pricing-calculator-pricingPlan .price-box > div:first-child {
-  border-right: 1px solid white;
-}
-.pricing-calculator-pricingPlan .price-box > div:hover {
-  background-color: #eee;
-}
+
 .pricing-calculator-pricingPlan .price-box > div:hover + .info .biyearly-info {
   font-weight: bold;
 }
 .pricing-calculator-pricingPlan .price-box .price {
   font-size: 26px;
-  color: #333;
+  color: #fff;
   font-weight: bold;
 }
 .pricing-calculator-pricingPlan .price-box .price-description {
@@ -90,8 +80,8 @@
 }
 .pricing-calculator-pricingPlan .price-box:before {
   position: absolute;
-  background-color: #eee;
-  color: #333;
+  background-color: #275795;
+  color: #fff;
   line-height: 100px;
   font-size: 19px;
   text-align: center;
@@ -120,16 +110,14 @@
 }
 
 .pricing-calculator-pricingPlan p.info {
-  position: absolute;
-  top: 100%;
   width: 100%;
   display: block;
   font-size: 15px;
   padding: 0;
-  margin: 5px 0 0 0;
+  margin: 50px 0 -50px 0;
   line-height: 1.2;
   text-align: center;
-  color: #333333;
+  color: #fff;
   opacity: 1;
   transition: opacity 0.2s;
 }
