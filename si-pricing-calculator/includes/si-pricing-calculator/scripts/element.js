@@ -117,6 +117,9 @@ jQuery(document).ready(function(){
 
         setButtonVisibility: function() {
             var self = this;
+            this.$freePlanButton.hide();
+            this.$trialButton.show();
+            this.$buyButton.hide();
             function waitForElement(){
                 if(typeof window.SI._currentUser.id !== "undefined"){
                     var isLoggedIn = window.SI._currentUser.id;
@@ -127,10 +130,7 @@ jQuery(document).ready(function(){
                         self.$freePlanButton.hide();
                         self.$trialButton.hide();
                         self.$buyButton.show();
-                    } else {
-                        self.$freePlanButton.hide();
-                        self.$trialButton.show();
-                        self.$buyButton.hide();
+                        self.$contactButton.hide();
                     }
 
                     // if (company != null && currentUser != null
@@ -160,6 +160,7 @@ jQuery(document).ready(function(){
             this.$freePlanButton = this.$actions.find("[data-pricing-button='freePlanButton']");
             this.$trialButton = this.$actions.find("[data-pricing-button='trialButton']");
             this.$buyButton = this.$actions.find("[data-pricing-button='buyButton']");
+            this.$contactButton = this.$actions.find(".contact-form-trigger");
             
             var $priceBox = this.$pricingPlan.find('.price-box');
 

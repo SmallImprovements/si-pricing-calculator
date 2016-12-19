@@ -52,7 +52,7 @@
   padding: 18px 10px;
   background-color: #ddd;
   color: #333;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   text-align: center;
   transition: all 0.5s;
@@ -67,6 +67,22 @@
 }
 #priceCalculatorForm .contact-us.actions:not(.free) .pricing-form-trigger {
   display: none;
+}
+#priceCalculatorForm .actions a.half-width{
+  width:50%;
+}
+@media all and (max-width:850px){
+  #priceCalculatorForm .actions > div{
+    overflow:visible;
+  }
+  #priceCalculatorForm .actions a{
+    display:block;
+    margin-bottom:10px;
+    border:none!important;
+  }
+  #priceCalculatorForm .actions a.half-width{
+    width:100%;
+  }
 }
 #priceCalculatorForm .pricing-info {
   text-align: center;
