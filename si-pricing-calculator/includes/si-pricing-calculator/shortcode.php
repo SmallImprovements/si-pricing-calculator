@@ -38,7 +38,7 @@ $containerAtts = cs_atts( array(
 			</a>
 
 			<!-- if (company != null && currentUser != null) {Buy Button -->
-			<a data-pricing-button="buyButton" class="pricing-form-trigger" data-trigger="request-invoice" href="#">Buy now</a>
+			<a data-pricing-button="buyButton" href="/contact">Contact us for a quote or renewal</a>
 			<a class="contact-form-trigger" href="https://www.small-improvements.com/contact">Contact us for renewal</a>
 		</div>	
 	</div>

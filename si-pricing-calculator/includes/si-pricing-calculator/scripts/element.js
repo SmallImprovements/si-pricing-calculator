@@ -116,20 +116,37 @@ jQuery(document).ready(function(){
         },
 
         setButtonVisibility: function() {
-            var isLoggedIn = window.SI._currentUser.id;
-            var company = window.SI._currentUser.company;
-            if(isLoggedIn) {
-                this.$freePlanButton.show();
-                this.$trialButton.hide();
-            } else {
-                this.$freePlanButton.hide();
-                this.$trialButton.show();
-            }
+            var self = this;
+            function waitForElement(){
+                if(typeof window.SI._currentUser.id !== "undefined"){
+                    var isLoggedIn = window.SI._currentUser.id;
+                    var company = window.SI._currentUser.company;
+                   
+                    
+                    if(isLoggedIn) {
+                        self.$freePlanButton.hide();
+                        self.$trialButton.hide();
+                        self.$buyButton.show();
+                    } else {
+                        self.$freePlanButton.hide();
+                        self.$trialButton.show();
+                        self.$buyButton.hide();
+                    }
 
-            // if (company != null && currentUser != null
-            //     && currentUser.hasBasicHR() && company.getPlan() == 0) {
-            //     this.$buyButton.show();
-            // }
+                    // if (company != null && currentUser != null
+                    //     && currentUser.hasBasicHR() && company.getPlan() == 0) {
+                    //     self.$buyButton.show();
+                    // }
+                }
+                else{
+                    setTimeout(function(){
+                        waitForElement();
+                    },250);
+                }
+            }
+            waitForElement();
+            
+            
         },
 
         cacheEls: function () {
