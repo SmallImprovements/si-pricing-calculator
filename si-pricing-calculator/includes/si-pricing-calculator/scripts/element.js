@@ -1,8 +1,8 @@
 
 
-jQuery(document).ready(function(){ 
+jQuery(document).ready(function(){
     //import {getPricing, getNormalizedUserCount} from '../utilities/getPricing';
-    // defaults 
+    // defaults
     var forProfitFreeLimit = 10;
     var nonProfitFreeLimit = forProfitFreeLimit * 2;
 
@@ -112,7 +112,7 @@ jQuery(document).ready(function(){
                 this.setPrice();
                 this.setButtonVisibility();
             }
-            
+
         },
 
         setButtonVisibility: function() {
@@ -120,33 +120,20 @@ jQuery(document).ready(function(){
             this.$freePlanButton.hide();
             this.$trialButton.show();
             this.$buyButton.hide();
-            function waitForElement(){
-                if(typeof window.SI._currentUser.id !== "undefined"){
-                    var isLoggedIn = window.SI._currentUser.id;
-                    var company = window.SI._currentUser.company;
-                   
-                    
-                    if(isLoggedIn) {
-                        self.$freePlanButton.hide();
-                        self.$trialButton.hide();
-                        self.$buyButton.show();
-                        self.$contactButton.hide();
-                    }
 
-                    // if (company != null && currentUser != null
-                    //     && currentUser.hasBasicHR() && company.getPlan() == 0) {
-                    //     self.$buyButton.show();
-                    // }
-                }
-                else{
-                    setTimeout(function(){
-                        waitForElement();
-                    },250);
-                }
-            }
-            waitForElement();
-            
-            
+            window._siUserPromise.then(function(user) {
+                if (!user) { return; }
+
+                self.$freePlanButton.hide();
+                self.$trialButton.hide();
+                self.$buyButton.show();
+                self.$contactButton.hide();
+
+                // var company = user.company;
+                // if (currentUser.hasBasicHR() && company.getPlan() == 0) {
+                //     self.$buyButton.show();
+                // }
+            });
         },
 
         cacheEls: function () {
@@ -161,7 +148,7 @@ jQuery(document).ready(function(){
             this.$trialButton = this.$actions.find("[data-pricing-button='trialButton']");
             this.$buyButton = this.$actions.find("[data-pricing-button='buyButton']");
             this.$contactButton = this.$actions.find(".contact-form-trigger");
-            
+
             var $priceBox = this.$pricingPlan.find('.price-box');
 
             this.$plan = {
@@ -197,7 +184,7 @@ jQuery(document).ready(function(){
             this.users = parseInt(this.$input.val(), 10);
             app.events.trigger('pricing-calculator-input', this.users);
             debounce(this.setPrice(), 500);
-            
+
         },
 
         setInput: function (event, users) {
