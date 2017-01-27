@@ -32,31 +32,14 @@ $containerAtts = cs_atts( array(
 			<a data-pricing-button="freePlanButton" class="free-plan">Congrats, you get SI for free!</a>
 			
 			<!-- if not logged in [trialButton] -->
-			<a data-pricing-button="trialButton" href="https://www.small-improvements.com/register">
+			<a data-pricing-button="trialButton" class="half-width" href="https://www.small-improvements.com/register">
 				<span class="trial">Start free trial</span>
 				<span class="signup">Free for up to 10 users.</span>
 			</a>
 
 			<!-- if (company != null && currentUser != null) {Buy Button -->
-			<a data-pricing-button="buyButton" class="pricing-form-trigger" data-trigger="request-invoice" href="#">Buy now</a>
-			<a class="contact-form-trigger" href="https://www.small-improvements.com/contact">Contact us for renewal</a>
+			<a data-pricing-button="buyButton" href="/contact">Contact us for a quote or renewal</a>
+			<a class="contact-form-trigger half-width" href="/contact">Contact us for a quote or renewal</a>
 		</div>	
-	</div>
-	<div class="pricingPlan">
-		<div class="price-box" data-plan="gold">
-			<div class="price-box-plan price-monthly" data-interval="monthly">
-				<div class="price">$6</div>
-				<div class="price-description">per user</div>
-				<div class="price-description">per month </div>
-			</div>
-			<div class="price-box-plan price-yearly" data-interval="yearly">
-				<div class="price">$60</div>
-				<div class="price-description">per user</div>
-				<div class="price-description">per year upfront</div>
-			</div>
-			<p class="info">Pricing in US Dollars<span class="staff-size"></span> <span data-tooltip="Volume discount applied."><i class="icon-info-sign"></i></span><br>
-				<span class="biyearly-info">Special offer: Pay <span class="biyearly-price"></span> for two years upfront.</span>
-			</p>
-		</div>
 	</div>
 </div>

@@ -1,8 +1,8 @@
 
 
-jQuery(document).ready(function(){ 
+jQuery(document).ready(function(){
     //import {getPricing, getNormalizedUserCount} from '../utilities/getPricing';
-    // defaults 
+    // defaults
     var forProfitFreeLimit = 10;
     var nonProfitFreeLimit = forProfitFreeLimit * 2;
 
@@ -112,24 +112,28 @@ jQuery(document).ready(function(){
                 this.setPrice();
                 this.setButtonVisibility();
             }
-            
+
         },
 
         setButtonVisibility: function() {
-            var isLoggedIn = window.SI._currentUser.id;
-            var company = window.SI._currentUser.company;
-            if(isLoggedIn) {
-                this.$freePlanButton.show();
-                this.$trialButton.hide();
-            } else {
-                this.$freePlanButton.hide();
-                this.$trialButton.show();
-            }
+            var self = this;
+            this.$freePlanButton.hide();
+            this.$trialButton.show();
+            this.$buyButton.hide();
 
-            // if (company != null && currentUser != null
-            //     && currentUser.hasBasicHR() && company.getPlan() == 0) {
-            //     this.$buyButton.show();
-            // }
+            window._siUserPromise.then(function(user) {
+                if (!user) { return; }
+
+                self.$freePlanButton.hide();
+                self.$trialButton.hide();
+                self.$buyButton.show();
+                self.$contactButton.hide();
+
+                // var company = user.company;
+                // if (currentUser.hasBasicHR() && company.getPlan() == 0) {
+                //     self.$buyButton.show();
+                // }
+            });
         },
 
         cacheEls: function () {
@@ -143,7 +147,8 @@ jQuery(document).ready(function(){
             this.$freePlanButton = this.$actions.find("[data-pricing-button='freePlanButton']");
             this.$trialButton = this.$actions.find("[data-pricing-button='trialButton']");
             this.$buyButton = this.$actions.find("[data-pricing-button='buyButton']");
-            
+            this.$contactButton = this.$actions.find(".contact-form-trigger");
+
             var $priceBox = this.$pricingPlan.find('.price-box');
 
             this.$plan = {
@@ -179,7 +184,7 @@ jQuery(document).ready(function(){
             this.users = parseInt(this.$input.val(), 10);
             app.events.trigger('pricing-calculator-input', this.users);
             debounce(this.setPrice(), 500);
-            
+
         },
 
         setInput: function (event, users) {
@@ -196,9 +201,9 @@ jQuery(document).ready(function(){
             if (!users || users < 1) {
                 users = 1;
                 reset = true;
-                this.$pricingPlan.removeClass('active');
+                //this.$pricingPlan.removeClass('active');
             } else {
-                this.$pricingPlan.addClass('active');
+                //this.$pricingPlan.addClass('active');
             }
 
         var nonprofit = this.$nonprofit.is(':checked');
