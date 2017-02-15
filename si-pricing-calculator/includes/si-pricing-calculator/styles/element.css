@@ -43,6 +43,9 @@
 #priceCalculatorForm .actions.free .signup {
   display: inline;
 }
+#priceCalculatorForm .actions.free .half-width{
+  width:100%!important;
+}
 #priceCalculatorForm .actions a {
   width: 100%;
   display: inline-block;
