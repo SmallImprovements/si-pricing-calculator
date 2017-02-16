@@ -5,6 +5,7 @@ jQuery(document).ready(function(){
     // defaults
     var forProfitFreeLimit = 10;
     var nonProfitFreeLimit = forProfitFreeLimit * 2;
+    var minimumLevel = 25;
 
     var levels = [
         {
@@ -72,10 +73,13 @@ jQuery(document).ready(function(){
     }
 
     function getNormalizedUserCount(count, nonprofit) {
-        var minimumLevel = 25;
         return count > getFreeLimit(nonprofit) && count < minimumLevel ?
             minimumLevel :
             count;
+    }
+
+    function getStaffSizePrefix(count){
+    	return count < minimumLevel ? 'up to ' : '';
     }
 
     function debounce(func, wait, immediate) {
@@ -194,7 +198,6 @@ jQuery(document).ready(function(){
         },
 
         setPrice: function () {
-            console.log(this.$pricingPlan);
             var reset = false,
                 users = this.users;
 
@@ -206,27 +209,28 @@ jQuery(document).ready(function(){
                 //this.$pricingPlan.addClass('active');
             }
 
-        var nonprofit = this.$nonprofit.is(':checked');
-        users = getNormalizedUserCount(users, nonprofit);
-        var price = getPricing(users, nonprofit);
+	        var nonprofit = this.$nonprofit.is(':checked');
+	        users = getNormalizedUserCount(users, nonprofit);
+	        var price = getPricing(users, nonprofit);
+	        
 
-        this.$plan.yearly.text('$' + price.yearly);
-        this.$plan.monthly.text('$' + price.monthly);
-        this.$plan.biyearly.text('$' + price.biyearly);
-        this.$plan.el
-            .toggleClass('free', reset ? false : price.free)
-            .toggleClass('nonprofit', reset ? false : nonprofit)
-            .toggleClass('calculated', !reset)
-            .toggleClass('contact', !reset && price.volumePricing);
-        this.$plan.staff
-            .toggleClass('no-price', !reset && price.free)
-            .toggleClass('calculated', !(reset || price.free))
-            .toggleClass('discounted', price.discountApplied)
-            .find('.staff-size').attr('data-users', users);
+	        this.$plan.yearly.text('$' + price.yearly);
+	        this.$plan.monthly.text('$' + price.monthly);
+	        this.$plan.biyearly.text('$' + price.biyearly);
+	        this.$plan.el
+	            .toggleClass('free', reset ? false : price.free)
+	            .toggleClass('nonprofit', reset ? false : nonprofit)
+	            .toggleClass('calculated', !reset)
+	            .toggleClass('contact', !reset && price.volumePricing);
+	        this.$plan.staff
+	            .toggleClass('no-price', !reset && price.free)
+	            .toggleClass('calculated', !(reset || price.free))
+	            .toggleClass('discounted', price.discountApplied)
+	            .find('.staff-size').attr('data-users', getStaffSizePrefix(this.users)+users);
 
 
-        this.$form.toggleClass('need-quote', parseFloat(price.yearly.replace(/,/g, '')) >= 1000);
-        this.$actions.toggleClass('free', !reset && price.free);
+	        this.$form.toggleClass('need-quote', parseFloat(price.yearly.replace(/,/g, '')) >= 1000);
+	        this.$actions.toggleClass('free', !reset && price.free);
         }
     };
 
