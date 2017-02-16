@@ -198,7 +198,6 @@ jQuery(document).ready(function(){
         },
 
         setPrice: function () {
-            console.log(this.$pricingPlan);
             var reset = false,
                 users = this.users;
 

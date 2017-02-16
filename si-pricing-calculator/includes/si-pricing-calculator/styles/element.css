@@ -43,9 +43,6 @@
 #priceCalculatorForm .actions.free .signup {
   display: inline;
 }
-#priceCalculatorForm .actions.free .half-width{
-  width:100%!important;
-}
 #priceCalculatorForm .actions a {
   width: 100%;
   display: inline-block;
@@ -74,14 +71,19 @@
 #priceCalculatorForm .actions a.half-width{
   width:50%;
 }
+#priceCalculatorForm .actions.free .half-width{
+  width:100%;
+}
 @media all and (max-width:850px){
   #priceCalculatorForm .actions > div{
     overflow:visible;
   }
-  #priceCalculatorForm .actions a{
+  #priceCalculatorForm .actions a,
+  #priceCalculatorForm .actions a:last-child,
+  #priceCalculatorForm .actions a.pricing-form-trigger{
     display:block;
     margin-bottom:10px;
-    border:none!important;
+    border:none;
   }
   #priceCalculatorForm .actions a.half-width{
     width:100%;
