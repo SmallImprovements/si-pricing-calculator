@@ -181,6 +181,7 @@
   line-height: 1.3;
   height: 1.3em;
   transition: height 0.2s;
+  font-weight: 500;
 }
 .price-box.calculated .price-description:not(:last-child) {
   height: 0;
