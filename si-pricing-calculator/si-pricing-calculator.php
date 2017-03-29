@@ -66,12 +66,9 @@ Version: 0.1.0
 		}
 	});
 
-	add_filter( 'cornerstone_icon_map', 'si_pricing_calculator_icon_map');
-
-	/* Mapping of SVG icon so when you're searching in CS Elements, it has a nice graphic. */
-	function si_pricing_calculator_icon_map( $icon_map ) {
-		$icon_map['si_pricing_calculator'] = EXT_URL . '/assets/svg/icons.svg';
+	add_filter( 'cornerstone_icon_map', function ( $icon_map ) {
+		$icon_map['si_pricing'] = EXT_URL . '/assets/svg/icons.svg';
 		return $icon_map;
-	}
+	});
  }
  loadSiPricingCalculator();

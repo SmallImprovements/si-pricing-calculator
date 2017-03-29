@@ -13,7 +13,8 @@ class SI_Pricing_Calculator {
 			'autofocus' => array(
 				'heading' => 'h4.si-pricing-calculator-heading',
 				'text' => '.si-pricing-calculator'
-			)
+			),
+			'icon_group' => 'si_pricing'
 		);
 	}
 

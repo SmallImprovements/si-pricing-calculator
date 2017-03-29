@@ -15,7 +15,7 @@ class SI_Pricing_Feature_List {
 				'text' => '.si-si-pricing-feature-list'
 			) ,
 			'renderChild' => true,
-			'icon_group' => 'si_pricing_feature_list'
+			'icon_group' => 'si_pricing'
 		);
 	}
 
